@@ -3,25 +3,28 @@
 #define STORE_H
 #include "Customer.h"
 #include <vector>
+#include "Order.h"
+#include "Inventory.h"
+
 class Store {
 private:
     std::string name;
 
-    Inventario inventario;
+    Inventory inventory;
 
-    vector<Customer> customers;
+    std::vector<Customer> customers;
 
-    vector<Order> orders;
+    std::vector<Order> orders;
 
 public:
     Store(std::string nombre);
 
-    void registrarCliente(
+    void registerClient(
         const Customer& customer);
 
-    void crearPedido();
+    void createOrder();
 
-    void mostrarInventario();
+    void showInventory();
 };
 
 #endif
