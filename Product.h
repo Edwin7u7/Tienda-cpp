@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 #ifndef PRODUCT_H
 #define PRODUCT_H
 class Product {
@@ -7,21 +8,49 @@ class Product {
         std::string name;
         float price;
         int stock;
-        std::string category;
+        
     
     public:
   
-        Product(int id, std::string n, float p, int s, std::string c):
-        idProduct(id),  name(n), price(p), stock(s), category(c) {}
+        Product(int id, std::string n, float p, int s):
+        idProduct(id),  name(n), price(p), stock(s) {}
 
-        void showProduct(){}
+        virtual ~Product() = default;
 
-        void updateStock(int stock){}
+        virtual std::string getType() const = 0;
 
-        float getPrice(){}
+        void sell(int amount){
+            if(amount> stock)
+            {
+                //throw StockInsuficienteException();
+            }
 
-        int getId (){}
+            stock -= amount;
+        }
 
+        float getPrice () const{
+            return price;
+        }
+
+        int getStock() const{
+            return stock;
+        };
+
+
+        void showProduct () const{
+            std::cout << "ID: " << idProduct
+                  << ", Nombre: " << name
+                  << ", Precio: " << price
+                  << ", Stock: " << stock << std::endl;
+        }
+
+        bool operator==(const Product& other) const{
+            return idProduct == other.idProduct;
+        };
+
+        int getId() const{
+            return idProduct;
+        }
 
 };
 #endif

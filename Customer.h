@@ -11,6 +11,8 @@ class Customer {
         :idCustomer(id), nombre(n), correo(c)
         {}
 
-        std::string getNombre() const;
+        std::string getNombre() const{
+            return nombre;
+        };
 };
 #endif

@@ -17,17 +17,33 @@ class Order{
     public:
         Order(
         int id,
-        Customer c): customer(c), idOrder(id){};
+        Customer c): customer(c), idOrder(id){total=0;};
 
-    void addProduct(
-        Product* product);
+    void addProduct(Product* product){
+        products.push_back(product);
+    };
 
-    void asignPayment(
-        std::unique_ptr<Payment> payment);
+    void asignPayment(std::unique_ptr<Payment> payment){
+        this->payment =move(payment);
+    };
 
-    void processPayment();
+    void processPayment(){
+        if(payment)
+        {
+            payment->processPayment();
+        }
+    };
 
-    float calculateTotal();
+    float calculateTotal(){
+        total = 0;
+
+        for(auto producto: products)
+        {
+            total +=producto->getPrice();
+        }
+
+        return total;
+    };
 
 };
 #endif

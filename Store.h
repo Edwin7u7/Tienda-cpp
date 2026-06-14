@@ -19,12 +19,17 @@ private:
 public:
     Store(std::string nombre);
 
-    void registerClient(
-        const Customer& customer);
+    void registerClient(const Customer& customer){
+        customers.push_back(customer);
+    }
 
-    void createOrder();
+    void createOrder(){
+      std::cout<< "Order created"<< std::endl;  
+    }
 
-    void showInventory();
+    void showInventory(){
+        inventory.showProducts();
+    }
 };
 
 #endif

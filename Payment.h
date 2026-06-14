@@ -7,8 +7,8 @@ protected:
 public:
     Payment(float amount): amount(amount){}
 
-    virtual void procesarPago() = 0;
+    virtual void processPayment() = 0;
 
-    virtual ~Payment() = default;
+    virtual ~Payment(){};
 };
 #endif
