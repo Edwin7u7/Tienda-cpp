@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include "StockInsuficienteException.h"
 #ifndef PRODUCT_H
 #define PRODUCT_H
 class Product {
@@ -22,7 +23,7 @@ class Product {
         void sell(int amount){
             if(amount> stock)
             {
-                //throw StockInsuficienteException();
+                throw StockInsuficienteException("Insufficient stock...");
             }
 
             stock -= amount;

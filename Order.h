@@ -17,7 +17,7 @@ class Order{
     public:
         Order(
         int id,
-        Customer c): customer(c), idOrder(id){total=0;};
+        Customer c): idOrder(id),customer(c){total=0;};
 
     void addProduct(Product* product){
         products.push_back(product);
@@ -32,7 +32,7 @@ class Order{
         {
             payment->processPayment();
         }
-    };
+    }
 
     float calculateTotal(){
         total = 0;
@@ -43,7 +43,22 @@ class Order{
         }
 
         return total;
-    };
+    }
+
+    void showOrder()const{
+        std::cout << "\n Order #" << idOrder;
+
+        std::cout << "\nCustomer: "<< customer.getNombre();
+
+        std::cout << "\nProducts:\n";
+
+        for(auto producto : products)
+        {
+            producto->showProduct();
+        }
+
+        std::cout << "\nTotal: "<< total<< std::endl;
+    }
 
 };
 #endif

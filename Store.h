@@ -17,7 +17,7 @@ private:
     std::vector<Order> orders;
 
 public:
-    Store(std::string nombre);
+    Store(std::string nombre): name(nombre){}
 
     void registerClient(const Customer& customer){
         customers.push_back(customer);
@@ -30,6 +30,10 @@ public:
     void showInventory(){
         inventory.showProducts();
     }
+
+    Inventory& getInventory() {
+    return inventory;
+}
 };
 
 #endif

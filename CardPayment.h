@@ -12,7 +12,7 @@ public:
                 std::string cardN): Payment(amount),cardNumber(cardN){} ;
 
     void processPayment() override{
-        std::cout<< "Pago con tarjeta por $"<< amount<< std::endl;
+        std::cout<< "Procesando pago con tarjeta por $"<< amount<< std::endl;
     };
 };
 #endif

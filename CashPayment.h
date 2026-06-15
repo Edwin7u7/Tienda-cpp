@@ -11,7 +11,7 @@ public:
                  float recievedCash): Payment(amount), recievedCash(recievedCash){};
 
     void processPayment() override{
-        std::cout<< "Pago en efectivo por $"<< amount<< std::endl;
+        std::cout<< "Procesando pago en efectivo por $"<< amount<< std::endl;
     };
 };
 
