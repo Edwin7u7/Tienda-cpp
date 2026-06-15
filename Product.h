@@ -4,7 +4,7 @@
 #ifndef PRODUCT_H
 #define PRODUCT_H
 class Product {
-    private:
+    protected:
         int idProduct;
         std::string name;
         float price;
